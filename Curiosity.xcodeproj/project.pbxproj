@@ -14,6 +14,8 @@
 		5B9820932631DF5900B2D1CB /* Curiosity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B9820912631DF5900B2D1CB /* Curiosity.xcdatamodeld */; };
 		5B9820952631DF5E00B2D1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9820942631DF5E00B2D1CB /* Assets.xcassets */; };
 		5B9820982631DF5E00B2D1CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9820962631DF5E00B2D1CB /* LaunchScreen.storyboard */; };
+		5B9820B02631E27500B2D1CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9820AF2631E27500B2D1CB /* NetworkManager.swift */; };
+		5B9820B52631EC2300B2D1CB /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9820B42631EC2300B2D1CB /* Photos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		5B9820942631DF5E00B2D1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B9820972631DF5E00B2D1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B9820992631DF5E00B2D1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B9820AF2631E27500B2D1CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5B9820B42631EC2300B2D1CB /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,50 @@
 		5B9820872631DF5900B2D1CB /* Curiosity */ = {
 			isa = PBXGroup;
 			children = (
+				5B9820B32631EC0F00B2D1CB /* Model */,
+				5B9820A42631DFE800B2D1CB /* Services */,
 				5B9820882631DF5900B2D1CB /* AppDelegate.swift */,
 				5B98208A2631DF5900B2D1CB /* SceneDelegate.swift */,
-				5B98208C2631DF5900B2D1CB /* ViewController.swift */,
-				5B98208E2631DF5900B2D1CB /* Main.storyboard */,
+				5B9820A22631DFD400B2D1CB /* ViewControllers */,
+				5B9820A02631DF9300B2D1CB /* Storyboards */,
 				5B9820942631DF5E00B2D1CB /* Assets.xcassets */,
-				5B9820962631DF5E00B2D1CB /* LaunchScreen.storyboard */,
 				5B9820992631DF5E00B2D1CB /* Info.plist */,
 				5B9820912631DF5900B2D1CB /* Curiosity.xcdatamodeld */,
 			);
 			path = Curiosity;
+			sourceTree = "<group>";
+		};
+		5B9820A02631DF9300B2D1CB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5B98208E2631DF5900B2D1CB /* Main.storyboard */,
+				5B9820962631DF5E00B2D1CB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5B9820A22631DFD400B2D1CB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B98208C2631DF5900B2D1CB /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5B9820A42631DFE800B2D1CB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5B9820AF2631E27500B2D1CB /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5B9820B32631EC0F00B2D1CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B9820B42631EC2300B2D1CB /* Photos.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9820B52631EC2300B2D1CB /* Photos.swift in Sources */,
 				5B98208D2631DF5900B2D1CB /* ViewController.swift in Sources */,
 				5B9820932631DF5900B2D1CB /* Curiosity.xcdatamodeld in Sources */,
+				5B9820B02631E27500B2D1CB /* NetworkManager.swift in Sources */,
 				5B9820892631DF5900B2D1CB /* AppDelegate.swift in Sources */,
 				5B98208B2631DF5900B2D1CB /* SceneDelegate.swift in Sources */,
 			);
@@ -300,7 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ml.alexmir.Curiosity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,7 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ml.alexmir.Curiosity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
