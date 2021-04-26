@@ -84,6 +84,9 @@ extension MainCollectionViewController: UIGestureRecognizerDelegate {
             
             let alert = UIAlertController(title: "Удалить", message: "Удалить изображение?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+                
+                self.collectionView.deleteItems(at: [indexPath])
+                
                 StorageManager.shared.delete(image: self.marsPhotos[indexPath.row]) {
                     StorageManager.shared.configureDB {
                         self.marsPhotos = StorageManager.shared.fetchData()
