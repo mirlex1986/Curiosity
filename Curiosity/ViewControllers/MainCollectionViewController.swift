@@ -65,7 +65,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
 
 }
 
-// MARK: extension
+// MARK: Recognizer
 extension MainCollectionViewController: UIGestureRecognizerDelegate {
     private func setupLongGestureRecognizerOnCollection() {
         let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
@@ -84,7 +84,6 @@ extension MainCollectionViewController: UIGestureRecognizerDelegate {
             
             let alert = UIAlertController(title: "Удалить", message: "Удалить изображение?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-                
                 StorageManager.shared.delete(image: self.marsPhotos[indexPath.row]) {
                     StorageManager.shared.configureDB {
                         self.marsPhotos = StorageManager.shared.fetchData()
