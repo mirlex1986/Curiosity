@@ -13,12 +13,12 @@ private let reuseIdentifier = "cell"
 class MainCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private var marsPhotos: Results<MarsPhoto>!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         marsPhotos = StorageManager.shared.fetchData()
-    
+        
         StorageManager.shared.configureDB {
             self.marsPhotos = StorageManager.shared.fetchData()
             self.collectionView.reloadData()
@@ -26,12 +26,12 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         
         setupLongGestureRecognizerOnCollection()
     }
-
-// MARK: UICollectionViewDataSource
+    
+    // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         marsPhotos.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MainCollectionViewCell
         
@@ -39,7 +39,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = UIScreen.main.bounds.width / 2 - 20
@@ -48,7 +48,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
         return size
     }
     
-// MARK: UICollectionViewDelegate
+    // MARK: UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let data = marsPhotos[indexPath.row]
         performSegue(withIdentifier: "showImage", sender: data)
@@ -62,7 +62,7 @@ class MainCollectionViewController: UICollectionViewController, UICollectionView
             }
         }
     }
-
+    
 }
 
 // MARK: Recognizer
@@ -74,7 +74,7 @@ extension MainCollectionViewController: UIGestureRecognizerDelegate {
         longPressedGesture.delaysTouchesBegan = true
         collectionView?.addGestureRecognizer(longPressedGesture)
     }
-
+    
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         if (gestureRecognizer.state != .began) { return }
         

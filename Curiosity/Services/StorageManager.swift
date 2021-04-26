@@ -69,7 +69,7 @@ class StorageManager {
             NetworkManager.shared.getJSONData(with: Photos.self) { result, isSuccess, error in
                 if isSuccess, let result = result {
                     result.photos.forEach { photoData in
-      
+                        
                         if counter < 25 {
                             guard !data.contains(where: {$0.id == photoData.id }),
                                   !deleted.contains(where: { $0.id == photoData.id }),
@@ -90,7 +90,7 @@ class StorageManager {
                                     
                                     self.save(image: photo)
                                     
-                                        completion?()
+                                    completion?()
                                     
                                     
                                 case .failure(let error):

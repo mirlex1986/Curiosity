@@ -18,8 +18,6 @@ class ImageViewController: UIViewController {
         imageScrollView = ImageScrollView(frame: view.bounds)
         view.addSubview(imageScrollView)
         setupImageScrollView()
-        
-        
 
         if let image = UIImage(data: data.img) {
             self.imageScrollView.set(image: image)
