@@ -5,50 +5,20 @@
 //  Created by Алексей on 22.04.2021.
 //
 
-import Foundation
-
 // MARK: - Photos
-struct Photos {
+struct Photos: Codable {
     let photos: [Photo]
 }
 
 // MARK: - Photo
-struct Photo {
-    let id, sol: Int
-    let camera: Camera
+struct Photo: Codable {
+    let id: Int
     let imgSrc: String
     let earthDate: String
-    let rover: Rover
-}
-
-// MARK: - Camera
-struct Camera {
-    let id: Int
-    let name: CameraName
-    let roverID: Int
-    let fullName: FullName
-}
-
-enum FullName {
-    case mastCamera
-}
-
-enum CameraName {
-    case mast
-}
-
-// MARK: - Rover
-struct Rover {
-    let id: Int
-    let name: RoverName
-    let landingDate, launchDate: String
-    let status: Status
-}
-
-enum RoverName {
-    case curiosity
-}
-
-enum Status {
-    case active
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case earthDate = "earth_date"
+        case imgSrc = "img_src"
+    }
 }
